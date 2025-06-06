@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotex Prediction Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0e101c;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #1a1d2d;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            text-align: center;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00ffaa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #00dd99;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #00ffaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quotex Candle Prediction</h1>
+        <p>Upload your 1-minute chart screenshot</p>
+        <input type="file" id="imageUpload" accept="image/*">
+        <br>
+        <button onclick="analyzeImage()">Predict</button>
+        <div class="result" id="resultText"></div>
+    </div><script>
+    function analyzeImage() {
+        const fileInput = document.getElementById('imageUpload');
+        const resultText = document.getElementById('resultText');
+
+        if (!fileInput.files.length) {
+            alert('Please upload a screenshot first.');
+            return;
+        }
+
+        // Simulated prediction result
+        const outcomes = ['CALL 📈', 'PUT 📉'];
+        const randomIndex = Math.floor(Math.random() * outcomes.length);
+        const prediction = outcomes[randomIndex];
+
+        resultText.textContent = `Predicted Signal: ${prediction}`;
+    }
+</script>
+
+</body>
+</html>
